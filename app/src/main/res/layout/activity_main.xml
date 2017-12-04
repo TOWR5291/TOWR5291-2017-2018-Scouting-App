@@ -27,10 +27,12 @@
                 android:id="@+id/prematch_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
+                <View android:layout_width="fill_parent" android:id="@+id/focus_view" android:layout_height="0dp" android:focusable="true" android:focusableInTouchMode="true"><requestFocus/></View>
 
                 <TextView
                     android:id="@+id/prematch_scout_data_static"
@@ -141,12 +143,11 @@
                     android:id="@+id/prematch_match_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:text="@string/prematch_match"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/prematch_select_team"/>
+                    app:layout_constraintTop_toBottomOf="@+id/prematch_other_team_input"/>
 
                 <TextView
                     android:id="@+id/prematch_select_alliance_static"
@@ -168,6 +169,28 @@
                     android:entries="@array/select_alliance"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/prematch_match_number"/>
+
+                <EditText
+                    android:id="@+id/prematch_other_team_input"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:hint="#####"
+                    android:maxLength="5"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prematch_select_team"/>
+
+                <TextView
+                    android:id="@+id/prematch_other_team_static"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Input Team Number:"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/prematch_other_team_input"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             </android.support.constraint.ConstraintLayout>
 
@@ -609,7 +632,7 @@
                 android:id="@+id/footer_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/finalize_layout">
